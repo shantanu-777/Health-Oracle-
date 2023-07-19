@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diabetes Prediction</title>
+  </head>
+  <body>
+    <h1>Diabetes Prediction</h1>
+    <form id="predictionForm">
+      <label for="inputData_0">Pregnancy:</label>
+      <input
+        type="number"
+        id="inputData_0"
+        name="inputData[]"
+        step="any"
+        required
+      /><br />
+
+      <label for="inputData_1">Glucose:</label>
+      <input
+        type="number"
+        id="inputData_1"
+        name="inputData[]"
+        step="any"
+        required
+      /><br />
+
+      <label for="inputData_2">Blood Pressure:</label>
+      <input
+        type="number"
+        id="inputData_2"
+        name="inputData[]"
+        step="any"
+        required
+      /><br />
+
+      <label for="inputData_3">Skin Thickness:</label>
+      <input
+        type="number"
+        id="inputData_3"
+        name="inputData[]"
+        step="any"
+        required
+      /><br />
+
+      <label for="inputData_4">Insulin:</label>
+      <input
+        type="number"
+        id="inputData_4"
+        name="inputData[]"
+        step="any"
+        required
+      /><br />
+
+      <label for="inputData_5">BMI:</label>
+      <input
+        type="number"
+        id="inputData_5"
+        name="inputData[]"
+        step="any"
+        required
+      /><br />
+
+      <label for="inputData_6">Diabetes Pedigree Function:</label>
+      <input
+        type="number"
+        id="inputData_6"
+        name="inputData[]"
+        step="any"
+        required
+      /><br />
+
+      <label for="inputData_7">Age:</label>
+      <input
+        type="number"
+        id="inputData_7"
+        name="inputData[]"
+        step="any"
+        required
+      /><br />
+
+      <br />
+      <input type="submit" value="Predict" />
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+      document
+        .getElementById("predictionForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var formData = new FormData(this);
+          var inputArray = [];
+
+          for (var pair of formData.entries()) {
+            inputArray.push(parseFloat(pair[1]));
+          }
+
+          var jsonData = {
+            input_data: inputArray,
+          };
+
+          fetch("/predict", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(jsonData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              var resultElement = document.getElementById("result");
+              resultElement.innerHTML = data.result;
+            })
+            .catch((error) => {
+              console.log("Error:", error);
+            });
+        });
+    </script>
+  </body>
+</html>

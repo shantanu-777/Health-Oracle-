@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lung Cancer Prediction Web App</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Lung Cancer Prediction Web App</h1>
+    <h2>User Input</h2>
+    <form id="prediction-form">
+      <label for="gender-input"
+        >GENDER: Enter 1 for Male and 0 for Female</label
+      >
+      <input type="number" id="gender-input" min="0" max="1" required />
+
+      <label for="age-input">AGE: Enter your Age</label>
+      <input type="number" id="age-input" min="1" max="100" required />
+
+      <label for="smoking-input"
+        >SMOKING: Enter 1 if you smoke or 0 if you don't smoke</label
+      >
+      <input type="number" id="smoking-input" min="0" max="1" required />
+
+      <label for="yellow-finger-input"
+        >YELLOW FINGERS: Enter 1 if you have yellow fingers or 0 if you
+        don't</label
+      >
+      <input type="number" id="yellow-finger-input" min="0" max="1" required />
+
+      <label for="anxiety-input"
+        >ANXIETY: Enter 1 if you have anxiety and 0 if you don't</label
+      >
+      <input type="number" id="anxiety-input" min="0" max="1" required />
+
+      <label for="peer-input"
+        >PEER PRESSURE: Enter 1 if you feel you suffer from peer pressure or 0
+        if you don't</label
+      >
+      <input type="number" id="peer-input" min="0" max="1" required />
+
+      <label for="chronic-input"
+        >CHRONIC DISEASE: Enter 1 if you suffer from a chronic disease or 0 if
+        you don't</label
+      >
+      <input type="number" id="chronic-input" min="0" max="1" required />
+
+      <label for="fatigue-input"
+        >FATIGUE: Enter 1 if you have fatigue or 0 if you don't</label
+      >
+      <input type="number" id="fatigue-input" min="0" max="1" required />
+
+      <label for="allergy-input"
+        >ALLERGY: Enter 1 if you have some sort of allergy or 0 if you
+        don't</label
+      >
+      <input type="number" id="allergy-input" min="0" max="1" required />
+
+      <label for="wheezing-input"
+        >WHEEZING: Enter 1 if you wheeze or 0 if you don't</label
+      >
+      <input type="number" id="wheezing-input" min="0" max="1" required />
+
+      <label for="alcohol-input"
+        >ALCOHOL CONSUMPTION: Enter 1 if you consume alcohol or 0 if you
+        don't</label
+      >
+      <input type="number" id="alcohol-input" min="0" max="1" required />
+
+      <label for="coughing-input"
+        >COUGHING: Enter 1 if you cough a lot or 0 if you don't</label
+      >
+      <input type="number" id="coughing-input" min="0" max="1" required />
+
+      <label for="breath-input"
+        >SHORTNESS OF BREATH: Enter 1 if you suffer from shortness of breath or
+        0 if you don't</label
+      >
+      <input type="number" id="breath-input" min="0" max="1" required />
+
+      <label for="swallow-input"
+        >SWALLOWING DIFFICULTY: Enter 1 if you have difficulty swallowing or 0
+        if you don't</label
+      >
+      <input type="number" id="swallow-input" min="0" max="1" required />
+
+      <label for="chest-input"
+        >CHEST PAIN: Enter 1 if you have chest pain or 0 if you don't</label
+      >
+      <input type="number" id="chest-input" min="0" max="1" required />
+
+      <button type="submit">Get Prediction</button>
+    </form>
+
+    <h2>Prediction Result</h2>
+    <div id="result-div"></div>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>
